@@ -2,6 +2,7 @@
   "name": "jsmind-playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://yct21.github.io/jsmind-playground/",
   "dependencies": {
     "jsmind": "^0.4.6",
     "react": "^16.4.1",
