@@ -6,8 +6,36 @@ import './App.css';
 class App extends Component {
   render() {
     const options = {
-        theme: 'orange',
-        editable: true,
+        container : '',         // [必选] 容器的ID
+        editable : true,       // 是否启用编辑
+        theme : null,           // 主题
+        mode :'full',           // 显示模式
+        support_html : true,    // 是否支持节点里的HTML元素
+        view:{
+            hmargin:100,        // 思维导图距容器外框的最小水平距离
+            vmargin:50,         // 思维导图距容器外框的最小垂直距离
+            line_width:2,       // 思维导图线条的粗细
+        },
+        layout:{
+            hspace:30,          // 节点之间的水平间距
+            vspace:20,          // 节点之间的垂直间距
+            pspace:13           // 节点与连接线之间的水平间距（用于容纳节点收缩/展开控制器）
+        },
+        shortcut:{
+            enable:true,        // 是否启用快捷键
+            handles:{},         // 命名的快捷键事件处理器
+            mapping:{           // 快捷键映射
+                addchild   : 45,    // <Insert>
+                addbrother : 13,    // <Enter>
+                editnode   : 113,   // <F2>
+                delnode    : 46,    // <Delete>
+                toggle     : 32,    // <Space>
+                left       : 37,    // <Left>
+                up         : 38,    // <Up>
+                right      : 39,    // <Right>
+                down       : 40,    // <Down>
+            }
+        },
     }
     
     const data = {
@@ -52,7 +80,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <JsMind options data/>
+        <JsMind options={options} data={data}/>
       </div>
     );
   }

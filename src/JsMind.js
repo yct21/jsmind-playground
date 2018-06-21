@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import JsMind from 'jsmind'
+import JsMindLib from 'jsmind'
 import uuid from 'uuid/v4'
 import 'jsmind/style/jsmind.css'
 
@@ -15,15 +15,17 @@ class JsMind extends Component {
   }
   
   componentDidMount() {
+    console.log(this.jsMind.data)
     const options = Object.assign({}, this.jsMind.options, {container: this.jsMind.mindId})
-    const jm = new JsMind(options)
+    const jm = new JsMindLib(options)
     jm.show(this.jsMind.data)
+    // jm.show({})
     this.jsMind.instance = jm
   }
   
   render() {
     return (
-      <div id={this.jsMind.mindId}>
+      <div id={this.jsMind.mindId} style={{height: 500}}>
       </div>
     )
   }
